@@ -1,26 +1,76 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.6">
-  <style type="text/css">
-    p.p3 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
-    p.p4 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yunrui Wang</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Welcome to Wang Yunrui’s Personal Website</b></span></h1>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>About Me</b></span></h2>
-<p class="p3"><span class="s1"></span><br></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Projects</b></span></h2>
-<p class="p4"><span class="s1">Details about your projects.</span></p>
-<h2 style="margin: 0.0px 0.0px 14.9px 0.0px; font: 18.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Contact</b></span></h2>
-<p class="p4"><span class="s1">Phone Number: +1 (510) 365-6165</span></p>
-<p class="p4"><span class="s1">Email: yrwangphys@gmail.com; wyr_phys@whu.edu.cn</span></p>
-<p class="p4"><span class="s1">© 2024 Wang, Yunrui</span></p>
+    <header>
+        <h1>Welcome to Yunrui Wang's Personal Website</h1>
+    </header>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'home.html')" id="defaultOpen">Home</button>
+        <button class="tablinks" onclick="openTab(event, 'about.html')">About</button>
+        <button class="tablinks" onclick="openTab(event, 'research.html')">Research</button>
+        <button class="tablinks" onclick="openTab(event, './publication.html')">Publication</button>
+    </div>
+
+    <div id="tabContent" class="tabcontent">
+        <!-- Tab content will be loaded here -->
+    </div>
+    <script>
+        function openTab(evt, fileName) {
+            var i, tabcontent, tablinks;
+
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove the active class from all tab buttons
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Add the active class to the clicked button
+            evt.currentTarget.className += " active";
+
+            // Load the content from the external file into the tab content area
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("tabContent").innerHTML = this.responseText;
+                    document.getElementById("tabContent").style.display = "block";
+                }
+            };
+            xhttp.open("GET", fileName, true);
+            xhttp.send();
+        }
+
+    // Load the default tab on page load
+    document.getElementById("defaultOpen").click();
+    </script>
+    <main>
+        <section>
+            <h2>Publications</h2>
+        </section>
+        <section>
+            <h2>Beyond CV & My story</h2>
+            
+        </section>
+        <section>
+            <h2>Contact</h2>
+            <p>Phone Number: +1 (510) 365-6165</p>
+	        <p>Email: <a href="yrwangphys@gmail.com">yrwangphys@gmail.com</a>; <a href="wyr_phys@whu.edu.cn">wyr_phys@whu.edu.cn</a></p>
+        </section>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2024 Yunrui Wang. All rights reserved.</p>
+    </footer>
+    
 </body>
 </html>
